@@ -2,6 +2,11 @@
   <head>
     <title>BAIL INFO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Protest Bail Information">
+    <meta property="og:site_name" content="Bail Funds">
+    <meta property="og:url" content="bailfund.info">
+    <meta property="og:description" content="Portal to protest bail funds organized by city.">
+    <meta property="og:type" content="website">
     <style type="text/css">
       body {
         background: white;
@@ -58,10 +63,9 @@
       <h1>PROTESTER BAIL FUND INFORMATION</h1>
       <p>Eye emoji 👀 = action hasn't yet been taken to verify.</p>
       <p>
-        To add/remove/verify list = <a class="ul" href="https://www.twitter.com/bailfundinfo/"><img class="twitter" src="twitter.svg" />@bailfundinfo</a
-        >
-        or
-        <a class="ul" href="mailto:admin@bailfund.info">admin@bailfund.info</a>
+        To add/remove/verify list = 
+        <a class="ul" href="https://www.twitter.com/bailfundinfo/"><img class="twitter" src="twitter.svg" />@bailfundinfo</a>
+        or <a class="ul" href="mailto:admin@bailfund.info">admin@bailfund.info</a>
       </p>
       <div id="list"></div>
     </div>
@@ -108,7 +112,7 @@
     { place: "Philadelphia, Pennsylvania", name: "Philly Bail Fund", verified: false, link: "https://www.phillybailout.com/donate.html" },
     { place: "Phoenix, Arizona", name: "Black People’s Justice Fund", verified: false, link: "https://secure.everyaction.com/lFZFGA1BpUa9kyYYgSxSKw2" },
     { place: "Pittsburgh, Pennsylvania", name: "Bukit Bail Fund", verified: false, link: "https://www.bukitbailfund.org/donate" },
-    { place: "Pittsburgh", name: "Aftercare Jail Support", verified: false, link: "https://www.gofundme.com/f/aftercare-for" },
+    { place: "Pittsburgh, Pennsylvania", name: "Aftercare Jail Support", verified: false, link: "https://www.gofundme.com/f/aftercare-for" },
     { place: "Portland", name: "PDX Protest Bail Fund", verified: true, link: "https://www.gofundme.com/f/pdx-protest-bail-fund" },
     { place: "Raleigh/ Chapel Hill, North Carolina", name: "Take Action Chapel Hill", verified: false, link: "https://www.takeactionch.com/donations" },
     { place: "Rhode Island", name: "FANG Community Bail Fund", verified: false, link: "https://www.gofundme.com/f/fangbailfund" },
@@ -126,10 +130,3 @@
   ].map(({place,link,name,verified}) => (`<a href="${link}"><span class="location">${place}</span><span>${name}${renderVerified(verified)}</span></a>`)).join('')
   </script>
 </html>
-
-
-
-
-
-
-
