@@ -131,4 +131,9 @@
     { place: "", name: "LGBTQ Freedom Fund", verified: false, link: "https://lgbtqfund.org" },
   ].map(({place,link,name,verified}) => (`<a href="${link}"><span class="location">${place}</span><span>${name}${renderVerified(verified)}</span></a>`)).join('')
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168080677-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-168080677-1');
+  </script>
 </html>
