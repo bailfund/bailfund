@@ -23,24 +23,51 @@
         margin: 50px 0;
         text-align: center;
       }
+
       .twitter {
         height: 18px;
         vertical-align: bottom;
         margin: 1px;
       }
-      #list > a {
-        display: flex;
-        flex-direction: row;
-        padding: 16px;
-        justify-content: space-between;
+
+      .row {
+        position: relative;
       }
-      #list > a:nth-child(odd) {
+      .row:nth-child(odd) {
         background-color: #ccc;
       }
-      #list > a:hover {
+      .row:hover {
         background-color: #222;
+      }
+
+      .link {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 16px;
+        width: 91%;
+      }
+      .row:hover .link {
         color: #ddd;
       }
+      .row:hover .name {
+        text-decoration: underline;
+      }
+
+      .media {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 15px;
+        background-color: #1DA1F2;
+      }
+      .row:hover .media {
+          opacity: 0.75;
+      }
+      .row .media:hover {
+        opacity: 1;
+      }
+
       a {
         color: #111;
         text-decoration: none;
@@ -48,6 +75,7 @@
       a.ul {
         text-decoration: underline;
       }
+
       @media only screen and (max-width: 800px) {
         .container {
           width: 100%;
@@ -72,6 +100,7 @@
   </body>
   <script>
   const renderVerified = verified => !verified ? `<span> 👀</span>` : '';
+  const renderMedia = (twitter) => twitter ? `<a class="ul media" href="${twitter}"><img class="twitter" src="twitter.svg" /></a>` : '';
 
   document.getElementById('list').innerHTML = [
     { place: "Atlanta", name: "Atlanta Solidarity", verified: true, link: "http://atlsolidarity.org/", media: "" },
@@ -130,14 +159,20 @@
     { place: "Rochester, New York", name: "BLM Rochester", verified: true, link: "https://venmo.com/blmroc" },
     { place: "Salt Lake City, Utah", name: "Support protesters arrested by SLCPD", verified: false, link: "https://www.takeactionch.com/donations" },
     { place: "San Diego, California", name: "DeDe McClure Memorial Community", verified: false, link: "https://www.gofundme.com/f/help-us-raise-funds-to-support-our-community" },
-    { place: "San Jose, California", name: "Silicon Valley DSA", verified: true, link: "https://siliconvalleydsa.org/donations/" },
+    { place: "San Jose, California", name: "Silicon Valley DSA", verified: true, link: "https://siliconvalleydsa.org/donations/", media: "https://twitter.com/SV_DSA" },
     { place: "Seattle, Washington", name: "Northwest Community Bail Fund", verified: true, link: "https://nwcombailfund.org", media: "https://twitter.com/NWComBailFund" },
     { place: "Toronto, Canada", name: "Toronto Protestor Fund", verified: false, link: "https://www.gofundme.com/f/toronto-protestor-bail-fund" },
     { place: "Tucson, Arizona", name: "Tucson Second Chance", verified: false, link: "https://secure.actblue.com/donate/tsccbf" },
     { place: "Wilmington, Delaware", name: "FNB Bail Fund", verified: false, link: "https://www.gofundme.com/f/fnbbailfundwilm" },
     { place: "National", name: "National Bail Out", verified: true, link: "https://secure.actblue.com/donate/freeblackmamas2020", media: "https://twitter.com/NationalBailOut" },
     { place: "National", name: "LGBTQ Freedom Fund", verified: true, link: "https://lgbtqfund.org", media: "https://twitter.com/LGBTQ_Freedom" },
-  ].map(({place,link,name,verified}) => (`<a href="${link}"><span class="location">${place}</span><span>${name}${renderVerified(verified)}</span></a>`)).join('')
+  ].map(({place,link,name,verified,media}) => (`<div class="row">
+    <a class="link" href="${link}">
+      <span class="location">${place}</span>
+      <span class="name">${name}${renderVerified(verified)}</span>
+    </a>
+    ${renderMedia(media)}
+  </div>`)).join('')
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168080677-1"></script>
   <script>
